@@ -1,0 +1,55 @@
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color:#000133;
+}
+
+.header{
+  display: flex;
+  background: #00022E;
+  height: 7vh;
+  align-items: center;
+  color: #FC86AA;
+}
+
+.icon{
+ padding: 1vmax;
+}
+
+.icon:hover{
+  cursor: pointer;
+}
+
+.header-title{
+  margin: auto;
+}
+
+.container{
+  display: flex;
+  flex: 1;
+}
+
+.drawer{
+  background: #D8DCD6;
+  width: 0px;
+  transition: width .7s;
+}
+
+.opened {
+  width: 240px;
+}
+
+.main{
+  flex: 1;
+  background: rgb(247, 245, 245);
+  color: black;
+  padding: 20px;
+}
+
+.footer{
+  background: #00022E;
+  height: 7vh;
+  color: #FC86AA;
+}
