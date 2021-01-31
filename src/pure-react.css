@@ -3,53 +3,47 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  color:#000133;
+  color: #000133;
 }
 
-.header{
+.header,
+.footer {
   display: flex;
-  background: #00022E;
-  height: 7vh;
+  background: #00022e;
+  height: 50px;
   align-items: center;
-  color: #FC86AA;
+  justify-content: center;
+  color: #fc86aa;
 }
 
-.icon{
- padding: 1vmax;
+.icon {
+  padding: 10px;
 }
 
-.icon:hover{
+.icon:hover {
   cursor: pointer;
 }
 
-.header-title{
+.header-title {
   margin: auto;
 }
 
-.container{
+.container {
   display: flex;
   flex: 1;
 }
 
-.drawer{
-  background: #D8DCD6;
+.drawer {
+  background: #d8dcd6;
   width: 0px;
-  transition: width .7s;
+  transition: width 0.7s;
 }
 
 .opened {
   width: 240px;
 }
 
-.main{
+.main {
   flex: 1;
-  background: rgb(247, 245, 245);
-  color: black;
-  padding: 20px;
-}
-
-.footer{
-  background: #00022E;
-  height: 7vh;
-  color: #FC86AA;
+  background: #f7f5f5;
 }
