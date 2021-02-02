@@ -1,31 +1,35 @@
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import { createStyles, darken, makeStyles, Theme } from '@material-ui/core/styles';
-import { Link } from 'react-router-dom';
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import {
+  createStyles,
+  darken,
+  makeStyles,
+  Theme,
+} from "@material-ui/core/styles";
+import { Link } from "react-router-dom";
 
-import { DrawerItem } from '../ts';
+import { DrawerItem } from "../ts";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     button: {
-      '&:hover': {
-        backgroundColor: darken(theme.palette.secondary.main, 0.1),
+      "&:hover": {
+        backgroundColor: theme.palette.primary.light,
+        color: theme.palette.common.white,
       },
-      '&$selected': {
-        backgroundColor: theme.palette.secondary.dark,
+      "&$selected": {
+        backgroundColor: theme.palette.primary.dark,
+        color: theme.palette.common.white,
       },
     },
     selected: {},
-    text: {
-      color: theme.palette.common.white,
-    },
     listIcon: {
-      minWidth: 'auto',
+      minWidth: "auto",
       paddingRight: theme.spacing(2),
     },
     icon: {
-      color: theme.palette.common.white,
+      color: theme.palette.secondary.main,
     },
   })
 );
@@ -35,7 +39,13 @@ type Props = DrawerItem & {
   onClick?: () => void;
 };
 
-const MenuItem: React.FC<Props> = ({ route, literal, Icon, selected, onClick}) => {
+const MenuItem: React.FC<Props> = ({
+  route,
+  literal,
+  Icon,
+  selected,
+  onClick,
+}) => {
   const classes = useStyles();
 
   const link = (
@@ -51,7 +61,7 @@ const MenuItem: React.FC<Props> = ({ route, literal, Icon, selected, onClick}) =
       <ListItemIcon className={classes.listIcon}>
         <Icon className={classes.icon} />
       </ListItemIcon>
-      <ListItemText className={classes.text} primary={literal} />
+      <ListItemText primary={literal} />
     </ListItem>
   );
   return route ? <Link to={route}>{link}</Link> : link;

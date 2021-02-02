@@ -10,6 +10,9 @@ const useStyles = makeStyles((theme: Theme) => ({
   list: {
     width: theme.spacing(30),
   },
+  padding: {
+    padding: 0,
+  },
 }));
 
 const MenuItemsList = () => {
@@ -19,7 +22,7 @@ const MenuItemsList = () => {
 
   return (
     <Grid className={classes.list}>
-      <List>
+      <List className={classes.padding}>
         {DRAWER_LIST.map(({ literal, route, Icon }) => (
           <MenuItem
             Icon={Icon}
