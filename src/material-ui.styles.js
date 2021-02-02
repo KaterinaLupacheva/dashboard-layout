@@ -1,4 +1,4 @@
-export const styles = (theme) => ({
+export const styles = () => ({
   root: {
     textAlign: "center",
     display: "flex",
@@ -7,16 +7,11 @@ export const styles = (theme) => ({
     color: "#000133",
   },
   appBar: {
-    zIndex: 1,
     background: "#00022E",
     color: "#FC86AA",
   },
-  toolbar: {
-    display: "flex",
-    width: "100%",
-  },
   icon: {
-    padding: "1vmax",
+    padding: "10px",
   },
   title: {
     margin: "auto",
@@ -30,9 +25,8 @@ export const styles = (theme) => ({
     width: "0px",
     transition: "width .7s",
   },
-  paper: {
+  closed: {
     width: "0px",
-    zIndex: 0,
     position: "static",
   },
   opened: {
@@ -42,14 +36,12 @@ export const styles = (theme) => ({
   },
   main: {
     flex: 1,
-    background: "rgb(247, 245, 245)",
+    background: "#f7f5f5",
     color: "black",
-    padding: "20px",
   },
   footer: {
     background: "#00022E",
-    height: "7vh",
+    height: "50px",
     color: "#FC86AA",
-    alignItems: "center",
   },
 });

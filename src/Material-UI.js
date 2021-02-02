@@ -17,7 +17,7 @@ const MaterialUI = ({ children }) => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <AppBar position="fixed" className={classes.appBar}>
+      <AppBar className={classes.appBar}>
         <Toolbar className={classes.toolbar}>
           <IconButton
             color="inherit"
@@ -37,7 +37,7 @@ const MaterialUI = ({ children }) => {
           variant="permanent"
           classes={{
             paper: clsx(classes.drawer, {
-              [classes.paper]: !isOpened,
+              [classes.closed]: !isOpened,
               [classes.opened]: isOpened,
             }),
           }}
