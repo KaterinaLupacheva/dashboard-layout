@@ -45,7 +45,10 @@ npm start
 
 4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
+### How to create from scratch
+
+I wrote the blog post on how to create Dashboard layout. You can read it [here](https://ramonak.io/posts/dashboard-layout-react-material-ui).
+
 ### Pure React version
 
 The starter code of this Dashboard layout in pure React.js (without Material-UI) is in [this branch](https://github.com/KaterinaLupacheva/dashboard-layout/tree/pure-react).
- 
