@@ -6,10 +6,7 @@ import { useLocation } from "react-router-dom";
 import { DRAWER_LIST } from "../constants/menu";
 import MenuItem from "./MenuItem";
 
-const useStyles = makeStyles((theme: Theme) => ({
-  list: {
-    width: theme.spacing(30),
-  },
+const useStyles = makeStyles(() => ({
   padding: {
     padding: 0,
   },
@@ -21,7 +18,7 @@ const MenuItemsList = () => {
   const { pathname } = useLocation();
 
   return (
-    <Grid className={classes.list}>
+    <Grid>
       <List className={classes.padding}>
         {DRAWER_LIST.map(({ literal, route, Icon }) => (
           <MenuItem

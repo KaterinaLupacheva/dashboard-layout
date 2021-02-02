@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { makeStyles, Theme } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 
 import Header from "./Header";
 import Drawer from "./Drawer";
@@ -8,13 +8,12 @@ import Toolbar from "@material-ui/core/Toolbar";
 
 import { DrawerContextProvider } from "../contexts/drawer-context";
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     textAlign: "center",
     display: "flex",
     flexDirection: "column",
     minHeight: "100vh",
-    color: "#000133",
   },
   container: {
     display: "flex",
@@ -22,8 +21,6 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   main: {
     flex: 1,
-    background: "#f7f5f5",
-    color: "black",
   },
 }));
 

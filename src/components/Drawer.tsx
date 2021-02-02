@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { makeStyles, Theme } from "@material-ui/core/styles";
 import { useDrawerContext } from "../contexts/drawer-context";
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles(() => ({
   drawer: {
     background: "#D8DCD6",
     position: "static",

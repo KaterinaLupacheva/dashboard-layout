@@ -9,11 +9,11 @@ import { useDrawerContext } from "../contexts/drawer-context";
 
 const useStyles = makeStyles((theme: Theme) => ({
   appBar: {
-    background: "#00022E",
-    color: "#FC86AA",
+    background: theme.palette.primary.dark,
+    color: theme.palette.secondary.light,
   },
   icon: {
-    padding: "10px",
+    padding: theme.spacing(1),
   },
   title: {
     margin: "auto",
