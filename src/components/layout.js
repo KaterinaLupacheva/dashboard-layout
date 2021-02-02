@@ -4,6 +4,7 @@ import clsx from "clsx";
 import Drawer from "@material-ui/core/Drawer";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
+import MenuItemsList from "./MenuItemsList";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
@@ -12,7 +13,7 @@ import { styles } from "./material-ui.styles";
 
 const useStyles = makeStyles(styles);
 
-const MaterialUI = ({ children }) => {
+const Layout = ({ children }) => {
   const [isOpened, setIsOpened] = useState(false);
   const classes = useStyles();
   return (
@@ -42,7 +43,7 @@ const MaterialUI = ({ children }) => {
             }),
           }}
         >
-          Drawer
+          <MenuItemsList />
         </Drawer>
         <main className={classes.main}>{children}</main>
       </div>
@@ -53,4 +54,4 @@ const MaterialUI = ({ children }) => {
   );
 };
 
-export default MaterialUI;
+export default Layout;
