@@ -1,5 +1,3 @@
-import Layout from "../components/layout";
-
-const CustomersPage = () => <Layout>Customers</Layout>;
+const CustomersPage = () => <div>Customers</div>;
 
 export default CustomersPage;
