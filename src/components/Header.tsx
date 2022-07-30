@@ -1,39 +1,28 @@
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import Typography from "@material-ui/core/Typography";
-import { makeStyles, Theme } from "@material-ui/core/styles";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from "@mui/icons-material/Menu";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import Typography from "@mui/material/Typography";
 import { useDrawerContext } from "../contexts/drawer-context";
-
-const useStyles = makeStyles((theme: Theme) => ({
-  appBar: {
-    background: theme.palette.primary.dark,
-    color: theme.palette.secondary.light,
-  },
-  icon: {
-    padding: theme.spacing(1),
-  },
-  title: {
-    margin: "auto",
-  },
-}));
+import { useTheme } from "@mui/material/styles";
 
 const Header = () => {
-  const classes = useStyles();
   const { isOpened, toggleIsOpened } = useDrawerContext();
+  const theme = useTheme();
   return (
-    <AppBar className={classes.appBar}>
+    <AppBar
+      sx={{ backgroundColor: "primary.dark", color: "secondary.contrastText" }}
+    >
       <Toolbar>
         <IconButton
           color="inherit"
           onClick={() => toggleIsOpened(!isOpened)}
-          className={classes.icon}
+          sx={{ padding: theme.spacing(1) }}
         >
           {isOpened ? <ChevronLeftIcon /> : <MenuIcon />}
         </IconButton>
-        <Typography variant="h6" className={classes.title}>
+        <Typography variant="h6" sx={{ margin: "auto" }}>
           Header
         </Typography>
       </Toolbar>

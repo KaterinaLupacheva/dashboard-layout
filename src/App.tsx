@@ -1,4 +1,4 @@
-import { Redirect, Route, Switch } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 
 import { ROUTES } from "./constants/routes";
 import Layout from "./components/Layout";
@@ -12,13 +12,13 @@ import {
 function App() {
   return (
     <Layout>
-      <Switch>
-        <Route path="/" exact render={() => <Redirect to={ROUTES.main} />} />
-        <Route exact path={ROUTES.main} component={DashboardPage} />
-        <Route exact path={ROUTES.orders} component={OrdersPage} />
-        <Route exact path={ROUTES.customers} component={CustomersPage} />
-        <Route exact path={ROUTES.inventory} component={InventoryPage} />
-      </Switch>
+      <Routes>
+        <Route path="/" element={<Navigate to={ROUTES.main} />} />
+        <Route path={ROUTES.main} element={<DashboardPage />} />
+        <Route path={ROUTES.orders} element={<OrdersPage />} />
+        <Route path={ROUTES.customers} element={<CustomersPage />} />
+        <Route path={ROUTES.inventory} element={<InventoryPage />} />
+      </Routes>
     </Layout>
   );
 }

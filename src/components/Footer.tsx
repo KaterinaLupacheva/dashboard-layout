@@ -1,20 +1,18 @@
-import Typography from "@material-ui/core/Typography";
-import { makeStyles, Theme } from "@material-ui/core/styles";
-
-const useStyles = makeStyles((theme: Theme) => ({
-  footer: {
-    background: theme.palette.primary.dark,
-    color: theme.palette.secondary.light,
-    padding: theme.spacing(2),
-  },
-}));
+import { Box, useTheme } from "@mui/material";
+import Typography from "@mui/material/Typography";
 
 const Footer = () => {
-  const classes = useStyles();
+  const theme = useTheme();
   return (
-    <div className={classes.footer}>
+    <Box
+      sx={{
+        background: theme.palette.primary.dark,
+        color: theme.palette.secondary.light,
+        padding: theme.spacing(2),
+      }}
+    >
       <Typography variant="h6">Footer</Typography>
-    </div>
+    </Box>
   );
 };
 

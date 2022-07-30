@@ -1,9 +1,9 @@
 import { DrawerItem } from '../ts';
 import { ROUTES } from './routes';
-import DashboardIcon from '@material-ui/icons/Dashboard';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import PeopleIcon from '@material-ui/icons/People';
-import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import PeopleIcon from '@mui/icons-material/People';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 
 export const DRAWER_LIST: DrawerItem[] = [
   {

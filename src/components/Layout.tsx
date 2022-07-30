@@ -1,46 +1,40 @@
 import { ReactNode } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-
 import Header from "./Header";
 import Drawer from "./Drawer";
-import Footer from "./Footer";
-import Toolbar from "@material-ui/core/Toolbar";
 
 import { DrawerContextProvider } from "../contexts/drawer-context";
-
-const useStyles = makeStyles(() => ({
-  root: {
-    textAlign: "center",
-    display: "flex",
-    flexDirection: "column",
-    minHeight: "100vh",
-  },
-  container: {
-    display: "flex",
-    flex: 1,
-  },
-  main: {
-    flex: 1,
-  },
-}));
+import Toolbar from "@mui/material/Toolbar";
+import Box from "@mui/material/Box";
+import Footer from "./Footer";
 
 type Props = {
   children: NonNullable<ReactNode>;
 };
 
 const Layout: React.FC<Props> = ({ children }) => {
-  const classes = useStyles();
   return (
     <DrawerContextProvider>
-      <div className={classes.root}>
+      <Box
+        sx={{
+          textAlign: "center",
+          display: "flex",
+          flexDirection: "column",
+          minHeight: "100vh",
+        }}
+      >
         <Header />
         <Toolbar />
-        <div className={classes.container}>
+        <Box
+          sx={{
+            display: "flex",
+            flex: 1,
+          }}
+        >
           <Drawer />
-          <main className={classes.main}>{children}</main>
-        </div>
+          <main style={{ flex: 1 }}>{children}</main>
+        </Box>
         <Footer />
-      </div>
+      </Box>
     </DrawerContextProvider>
   );
 };
