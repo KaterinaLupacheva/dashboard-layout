@@ -12,13 +12,12 @@ Starter code with the implementation of:
 
 ## Features
 
-- React v.17
-- TypeScript v.4
-- Material-UI v.4
-- React Router v.5
+- React v18
+- TypeScript v4
+- Material-UI v5
+- React Router v6
 - React Context
 - React Hooks
-- CSS-in-JS styles
 - Responsive
 - Create-react-app under the hood
 
