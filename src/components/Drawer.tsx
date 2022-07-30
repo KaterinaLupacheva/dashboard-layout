@@ -8,7 +8,6 @@ const StyledDrawer = styled(Drawer, {
   shouldForwardProp: (prop) => prop !== "isOpened",
 })<{ isOpened: boolean }>(({ isOpened, theme }) => ({
   width: isOpened ? 240 : theme.spacing(7),
-  
   position: "static",
   transition: isOpened
     ? theme.transitions.create("width", {
@@ -19,10 +18,10 @@ const StyledDrawer = styled(Drawer, {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
       }),
-  overflowX: "hidden",
   "& .MuiDrawer-paper": {
     background: "#D8DCD6",
     position: "static",
+    overflowX: "hidden",
   },
 }));
 

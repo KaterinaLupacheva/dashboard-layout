@@ -5,6 +5,7 @@ import Drawer from "./Drawer";
 import { DrawerContextProvider } from "../contexts/drawer-context";
 import Toolbar from "@mui/material/Toolbar";
 import Box from "@mui/material/Box";
+import Footer from "./Footer";
 
 type Props = {
   children: NonNullable<ReactNode>;
@@ -32,6 +33,7 @@ const Layout: React.FC<Props> = ({ children }) => {
           <Drawer />
           <main style={{ flex: 1 }}>{children}</main>
         </Box>
+        <Footer />
       </Box>
     </DrawerContextProvider>
   );
