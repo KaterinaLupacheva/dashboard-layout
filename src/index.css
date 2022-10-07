@@ -5,6 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
 }
 
 code {
@@ -15,4 +18,9 @@ code {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+#root {
+  overflow: hidden;
+  height: inherit;
 }

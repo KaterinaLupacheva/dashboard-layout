@@ -1,16 +1,18 @@
-import List from "@mui/material/List";
-import Grid from "@mui/material/Grid";
-import { useLocation } from "react-router-dom";
-import { DRAWER_LIST } from "../constants/menu";
-import MenuItem from "./MenuItem";
+import { useLocation } from 'react-router-dom';
+import { List, Grid } from '@mui/material';
 
-const MenuItemsList = () => {
+import { MenuItem } from './MenuItem';
+import { IMenuItem } from '../types';
+
+export const MenuItemsList = ({ items = [] }: { items?: IMenuItem[] }) => {
   const { pathname } = useLocation();
+
+  if (!items.length) return null;
 
   return (
     <Grid>
       <List sx={{ p: 0 }}>
-        {DRAWER_LIST.map(({ literal, route, Icon }) => (
+        {items.map(({ literal, route, Icon }) => (
           <MenuItem
             Icon={Icon}
             literal={literal}
@@ -23,5 +25,3 @@ const MenuItemsList = () => {
     </Grid>
   );
 };
-
-export default MenuItemsList;

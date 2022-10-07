@@ -1,3 +1,1 @@
-const InventoryPage = () => <div>Inventory</div>;
-
-export default InventoryPage;
+export const InventoryPage = () => <div>Inventory</div>;

@@ -1,3 +1,1 @@
-const DashboardPage = () => <div>Dashboard</div>;
-
-export default DashboardPage;
+export const DashboardPage = () => <div>Dashboard</div>;

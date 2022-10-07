@@ -1,45 +1,43 @@
-import MenuItemsList from "./MenuItemsList";
-import { useDrawerContext } from "../contexts/drawer-context";
-import Drawer from "@mui/material/Drawer";
-import { useMediaQuery, useTheme } from "@mui/material";
-import { styled } from "@mui/material/styles";
+import { useMediaQuery, useTheme, Drawer as MuiDrawer, styled } from '@mui/material';
 
-const StyledDrawer = styled(Drawer, {
-  shouldForwardProp: (prop) => prop !== "isOpened",
+import { useDrawerContext } from '../contexts/drawer-context';
+import { MenuItemsList } from './MenuItemsList';
+
+const StyledDrawer = styled(MuiDrawer, {
+  shouldForwardProp: (prop) => prop !== 'isOpened',
 })<{ isOpened: boolean }>(({ isOpened, theme }) => ({
   width: isOpened ? 240 : theme.spacing(7),
-  position: "static",
+  height: '100%',
+  overflow: 'auto',
   transition: isOpened
-    ? theme.transitions.create("width", {
+    ? theme.transitions.create('width', {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.enteringScreen,
       })
-    : theme.transitions.create("width", {
+    : theme.transitions.create('width', {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
       }),
-  "& .MuiDrawer-paper": {
-    background: "#D8DCD6",
-    position: "static",
-    overflowX: "hidden",
+  '& .MuiDrawer-paper': {
+    background: '#D8DCD6',
+    position: 'static',
+    overflowX: 'hidden'
   },
 }));
 
-const CustomDrawer = () => {
-  const { isOpened, toggleIsOpened } = useDrawerContext();
+export const Drawer = () => {
+  const { isOpened, toggleIsOpened, menu } = useDrawerContext();
   const theme = useTheme();
-  const isLargeScreen = useMediaQuery(theme.breakpoints.up("sm"));
+  const isLargeScreen = useMediaQuery(theme.breakpoints.up('sm'));
 
   return (
     <StyledDrawer
-      variant={isLargeScreen ? "permanent" : "temporary"}
+      variant={isLargeScreen ? 'permanent' : 'temporary'}
       open={!isLargeScreen && isOpened ? true : false}
       onClose={() => toggleIsOpened(!isOpened)}
       isOpened={isOpened}
     >
-      <MenuItemsList />
+      <MenuItemsList items={menu}/>
     </StyledDrawer>
   );
 };
-
-export default CustomDrawer;

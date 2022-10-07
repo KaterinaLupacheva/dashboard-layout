@@ -1,8 +1,12 @@
-import { createContext, useState, useContext } from "react";
+import { createContext, useState, useContext, useMemo } from 'react';
+
+import { IMenuItem } from '../types';
+import { MENU_LIST } from '../constants';
 
 type DrawerContextType = {
   isOpened: boolean;
   toggleIsOpened: (value: boolean) => void;
+  menu: IMenuItem[];
 };
 
 type DrawerContextProviderProps = {
@@ -11,17 +15,24 @@ type DrawerContextProviderProps = {
 
 const DrawerContext = createContext<DrawerContextType | undefined>(undefined);
 
-const DrawerContextProvider = ({ children }: DrawerContextProviderProps) => {
+export const DrawerContextProvider = ({ children }: DrawerContextProviderProps) => {
   const [isOpened, toggleIsOpened] = useState(false);
 
+  const value = useMemo(() => ({
+    isOpened,
+    toggleIsOpened,
+    menu: MENU_LIST
+  })
+  , [isOpened]);
+
   return (
-    <DrawerContext.Provider value={{ isOpened, toggleIsOpened }}>
+    <DrawerContext.Provider value={value}>
       {children}
     </DrawerContext.Provider>
   );
 };
 
-const useDrawerContext = () => {
+export const useDrawerContext = () => {
   const context = useContext(DrawerContext);
   if (context === undefined) {
     throw new Error(
@@ -30,5 +41,3 @@ const useDrawerContext = () => {
   }
   return context;
 };
-
-export { DrawerContextProvider, useDrawerContext };
