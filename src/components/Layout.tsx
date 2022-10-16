@@ -1,13 +1,12 @@
-import { ReactNode } from 'react';
-import { Toolbar, Box, styled } from '@mui/material';
+import { ReactNode } from "react";
+import { Toolbar, Box, styled } from "@mui/material";
 
-import { Header } from './Header';
-import { Drawer } from './Drawer';
-import { Footer } from './Footer';
-import { Main } from './Main';
+import { Header } from "./Header";
+import { Drawer } from "./Drawer";
+import { Footer } from "./Footer";
+import { Main } from "./Main";
 
-import { DrawerContextProvider } from '../contexts/drawer-context';
-import { IMenuItem } from '../types';
+import { DrawerContextProvider } from "../contexts/drawer-context";
 
 const OuterContainer = styled(Box)`
   display: flex;
@@ -26,7 +25,7 @@ const InnerContainer = styled(Box)`
 
 interface ILayoutProps {
   children: NonNullable<ReactNode>;
-};
+}
 
 export const Layout = ({ children }: ILayoutProps) => (
   <DrawerContextProvider>
@@ -35,13 +34,9 @@ export const Layout = ({ children }: ILayoutProps) => (
       <Toolbar />
       <InnerContainer>
         <Drawer />
-        <Main>
-          {children}
-        </Main>
+        <Main>{children}</Main>
       </InnerContainer>
-      <Footer>
-          Footer
-      </Footer>
+      <Footer>Footer</Footer>
     </OuterContainer>
   </DrawerContextProvider>
 );

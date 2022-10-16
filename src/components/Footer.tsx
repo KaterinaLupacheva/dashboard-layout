@@ -14,6 +14,7 @@ export const Footer = ({ children }: PropsWithChildren<unknown>) => {
         background: theme.palette.primary.dark,
         color: theme.palette.secondary.light,
         padding: theme.spacing(2),
+        textAlign: 'center',
       }}
     >
       { children }
