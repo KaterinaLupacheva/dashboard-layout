@@ -1,3 +1,1 @@
-const CustomersPage = () => <div>Customers</div>;
-
-export default CustomersPage;
+export const CustomersPage = () => <div>Customers</div>;

@@ -1,16 +1,15 @@
-import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import { Link } from "react-router-dom";
-import { DrawerItem } from "../ts";
+import { Link } from 'react-router-dom';
+import { ListItem, ListItemIcon, ListItemText } from '@mui/material';
 
-type Props = DrawerItem & {
+import { IMenuItem } from '../types';
+
+type Props = IMenuItem & {
   selected?: boolean;
   onClick?: () => void;
 };
 
-const MenuItem: React.FC<Props> = ({
-  route,
+export const MenuItem: React.FC<Props> = ({
+route,
   literal,
   Icon,
   selected,
@@ -21,31 +20,32 @@ const MenuItem: React.FC<Props> = ({
       button
       selected={selected}
       sx={{
-        "&.Mui-selected": {
-          backgroundColor: "primary.dark",
-          color: "common.white",
+        '&.Mui-selected': {
+          backgroundColor: 'primary.dark',
+          color: 'common.white',
         },
-        "&:hover": {
-          backgroundColor: "primary.light",
-          color: "common.white",
+        '&:hover': {
+          backgroundColor: 'primary.light',
+          color: 'common.white',
         },
       }}
       onClick={onClick}
     >
       <ListItemIcon
         sx={[
-          { minWidth: "auto" },
+          { minWidth: 'auto' },
           (theme) => ({
             paddingRight: theme.spacing(2),
           }),
         ]}
       >
-        <Icon sx={{ color: "secondary.dark" }} />
+        <Icon sx={{ color: 'secondary.dark' }} />
       </ListItemIcon>
       <ListItemText primary={literal} />
     </ListItem>
   );
-  return route ? <Link to={route}>{link}</Link> : link;
-};
 
-export default MenuItem;
+  return route
+    ? <Link to={route}>{link}</Link>
+    : link;
+};

@@ -1,19 +1,23 @@
-import { Box, useTheme } from "@mui/material";
-import Typography from "@mui/material/Typography";
+import { PropsWithChildren } from 'react';
+import { Box, useTheme } from '@mui/material';
 
-const Footer = () => {
+export const Footer = ({ children }: PropsWithChildren<unknown>) => {
   const theme = useTheme();
+
+  if (!children) {
+    return null;
+  }
+
   return (
     <Box
       sx={{
         background: theme.palette.primary.dark,
         color: theme.palette.secondary.light,
         padding: theme.spacing(2),
+        textAlign: 'center',
       }}
     >
-      <Typography variant="h6">Footer</Typography>
+      { children }
     </Box>
   );
 };
-
-export default Footer;

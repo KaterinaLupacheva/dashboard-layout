@@ -1,42 +1,42 @@
 import { ReactNode } from "react";
-import Header from "./Header";
-import Drawer from "./Drawer";
+import { Toolbar, Box, styled } from "@mui/material";
+
+import { Header } from "./Header";
+import { Drawer } from "./Drawer";
+import { Footer } from "./Footer";
+import { Main } from "./Main";
 
 import { DrawerContextProvider } from "../contexts/drawer-context";
-import Toolbar from "@mui/material/Toolbar";
-import Box from "@mui/material/Box";
-import Footer from "./Footer";
 
-type Props = {
+const OuterContainer = styled(Box)`
+  display: flex;
+  overflow: hidden;
+  height: inherit;
+  flex-direction: column;
+  min-height: 100vh;
+`;
+
+const InnerContainer = styled(Box)`
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  height: inherit;
+`;
+
+interface ILayoutProps {
   children: NonNullable<ReactNode>;
-};
+}
 
-const Layout: React.FC<Props> = ({ children }) => {
-  return (
-    <DrawerContextProvider>
-      <Box
-        sx={{
-          textAlign: "center",
-          display: "flex",
-          flexDirection: "column",
-          minHeight: "100vh",
-        }}
-      >
-        <Header />
-        <Toolbar />
-        <Box
-          sx={{
-            display: "flex",
-            flex: 1,
-          }}
-        >
-          <Drawer />
-          <main style={{ flex: 1 }}>{children}</main>
-        </Box>
-        <Footer />
-      </Box>
-    </DrawerContextProvider>
-  );
-};
-
-export default Layout;
+export const Layout = ({ children }: ILayoutProps) => (
+  <DrawerContextProvider>
+    <OuterContainer>
+      <Header />
+      <Toolbar />
+      <InnerContainer>
+        <Drawer />
+        <Main>{children}</Main>
+      </InnerContainer>
+      <Footer>Footer</Footer>
+    </OuterContainer>
+  </DrawerContextProvider>
+);
